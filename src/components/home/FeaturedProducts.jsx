@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
     <section className="py-10">
       {/* Heading */}
       <h2 className="text-center text-2xl md:text-4xl pb-6">
-        Loved at <span className="text-red-600">Every Level</span>
+        Loved at <span className="text-red-500">Every Level</span>
       </h2>
 
       {/* Background Wrapper */}
@@ -36,7 +36,7 @@ const FeaturedProducts = () => {
                     src={img}
                     alt={catName}
                   />
-                  <h2 className="capitalize text-sm md:text-lg group-hover:text-red-600">
+                  <h2 className="capitalize text-sm md:text-lg group-hover:text-red-500">
                     {catName}
                   </h2>
                 </div>
@@ -69,13 +69,13 @@ const FeaturedProducts = () => {
                 </div>
 
                 {/* Sale Tag */}
-                <h3 className="bg-red-600 absolute top-2 left-2 px-2 py-1 rounded-lg text-white text-xs uppercase">
+                <h3 className="bg-red-500 absolute top-2 left-2 px-2 py-1 rounded-lg text-white text-xs uppercase">
                   Sale
                 </h3>
 
                 {/* Price */}
                 <div className="flex gap-2 justify-center p-3 text-sm md:text-base">
-                  <h2 className="font-bold text-red-600">
+                  <h2 className="font-bold text-red-500">
                     Rs.{item.SalePrice}
                   </h2>
                   <h2 className="line-through text-gray-500">
@@ -84,7 +84,7 @@ const FeaturedProducts = () => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-center px-2 pb-4 text-sm md:text-base hover:text-red-600 text-gray-900">
+                <h2 className="text-center px-2 pb-4 text-sm md:text-base hover:text-red-500 text-gray-900">
                   {item.info}
                 </h2>
               </div>
@@ -93,7 +93,7 @@ const FeaturedProducts = () => {
 
           {/* View All */}
           <div className="flex justify-center mt-15">
-            <CtnBtn className="bg-red-600 px-10 md:px-20 py-3 rounded-2xl">
+            <CtnBtn className="bg-red-500 px-10 md:px-20 py-3 rounded-2xl">
               View All
             </CtnBtn>
           </div>

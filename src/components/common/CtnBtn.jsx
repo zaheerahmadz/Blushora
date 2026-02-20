@@ -3,7 +3,7 @@ import React from "react";
 const CtnBtn = ({
   children,
   className = "",
-  bg = "bg-red-600",
+  bg = "bg-red-500",
   hoverText = "group-hover:text-red-500",
 }) => {
   const base =
