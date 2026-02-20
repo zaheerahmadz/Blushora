@@ -60,7 +60,7 @@ const Hero = () => {
                 <p className="mt-3 text-lg text-gray-500 opacity-90">
                   {slide.desc}
                 </p>
-                <CtnBtn />
+                <CtnBtn>Explore More</CtnBtn>
               </div>
             </SwiperSlide>
           ))}

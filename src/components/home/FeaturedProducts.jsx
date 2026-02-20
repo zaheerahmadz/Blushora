@@ -1,55 +1,102 @@
 import React, { useState } from "react";
 import category from "../../constant/category";
 import Products from "../../constant/Products";
+import CtnBtn from "../common/CtnBtn";
 
 const FeaturedProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState("Lotion");
-  console.log(selectedCategory);
 
   const filteredProducts = Products.filter(
     (product) => product.category === selectedCategory,
   );
 
   return (
-    <section className="py-5">
-      <h2 className="text-center text-4xl pb-1 pt-5">
-        Loved at <span className="text-red-500">Every Level</span>
+    <section className="py-10">
+      {/* Heading */}
+      <h2 className="text-center text-2xl md:text-4xl pb-6">
+        Loved at <span className="text-red-600">Every Level</span>
       </h2>
 
-      <div className="w-full h-[600px] md:h-[800px] bg-[url('/love.png')] bg-cover bg-center bg-no-repeat">
-        <div className="flex justify-center lg:gap-40 gap-20 pt-25 flex-wrap mb-10">
-          {category.map((item, index) => {
-            const { img, category: catName } = item;
+      {/* Background Wrapper */}
+      <div className="w-full bg-[url('/love.png')] bg-cover bg-center bg-no-repeat py-10 md:py-20">
+        {/* Categories */}
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center flex-wrap gap-6 md:gap-12 lg:gap-20 mb-12">
+            {category.map((item, index) => {
+              const { img, category: catName } = item;
 
-            return (
+              return (
+                <div
+                  key={index}
+                  onClick={() => setSelectedCategory(catName)}
+                  className="flex cursor-pointer flex-col items-center gap-3 group"
+                >
+                  <img
+                    className="border border-red-500 p-2 md:p-3 rounded-full w-16 h-16 md:w-20 md:h-20 object-cover transition-all duration-200 group-hover:bg-pink-200"
+                    src={img}
+                    alt={catName}
+                  />
+                  <h2 className="capitalize text-sm md:text-lg group-hover:text-red-600">
+                    {catName}
+                  </h2>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Products Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.map((item) => (
               <div
-                key={index}
-                onClick={() => setSelectedCategory(catName)}
-                className="flex cursor-pointer flex-col items-center gap-4 hover:text-red-500"
+                key={item.id}
+                className="bg-gray-100 relative rounded-2xl shadow-md hover:shadow-2xl transition overflow-hidden"
               >
-                <img
-                  className="border object-cover hover:bg-pink-200 transition-all duration-200 border-red-500 p-3 rounded-full"
-                  src={img}
-                  alt={catName}
-                />
-                <h2 className="capitalize text-xl hover:text-red-500">
-                  {catName}
+                {/* Image */}
+                <div className="relative group aspect-square overflow-hidden rounded-t-2xl">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <CtnBtn className="px-4 py-2 text-xs md:text-sm">
+                      Add To Cart
+                    </CtnBtn>
+                  </div>
+                </div>
+
+                {/* Sale Tag */}
+                <h3 className="bg-red-600 absolute top-2 left-2 px-2 py-1 rounded-lg text-white text-xs uppercase">
+                  Sale
+                </h3>
+
+                {/* Price */}
+                <div className="flex gap-2 justify-center p-3 text-sm md:text-base">
+                  <h2 className="font-bold text-red-600">
+                    Rs.{item.SalePrice}
+                  </h2>
+                  <h2 className="line-through text-gray-500">
+                    Rs.{item.RegularPrice}
+                  </h2>
+                </div>
+
+                {/* Title */}
+                <h2 className="text-center px-2 pb-4 text-sm md:text-base hover:text-red-600 text-gray-900">
+                  {item.info}
                 </h2>
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
 
-        <div className="flex justify-center gap-5 flex-wrap">
-          {filteredProducts.map((item) => (
-            <div key={item.id}>
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-40 h-40 object-cover"
-              />
-            </div>
-          ))}
+          {/* View All */}
+          <div className="flex justify-center mt-15">
+            <CtnBtn className="bg-red-600 px-10 md:px-20 py-3 rounded-2xl">
+              View All
+            </CtnBtn>
+          </div>
         </div>
       </div>
     </section>
