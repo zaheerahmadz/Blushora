@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+
 import CtnBtn from "../common/CtnBtn";
 
 const slides = [
@@ -28,23 +29,28 @@ const slides = [
 const Hero = () => {
   return (
     <section className="w-full">
-      {/* First Swiper - Content with fixed background */}
-      <div className="relative w-full h-60 bg-[url('/hero.png')] bg-cover bg-center bg-no-repeat">
-        {/* Optional overlay for better text contrast */}
+      {/* Single Swiper – background image + centered text overlay */}
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        navigation={true}
+        className="w-full h-[500px] md:h-[600px] lg:h-[700px]" // ← adjust height as needed
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div
+              className="w-full h-full bg-cover bg-center bg-no-repeat relative"
+              style={{ backgroundImage: `url(${slide.img})` }}
+            >
+              {/* Dark overlay for better text readability (optional – adjust opacity) */}
+              <div className="absolute inset-0 bg-black/30" />
 
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          navigation={true}
-          className="w-full h-full relative z-10"
-        >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <div className="flex flex-col gap-3 items-center justify-center h-full text-center text-white px-5">
-                <h1 className="text-4xl md:text-5xl font-bold text-black">
+              {/* Text content – centered */}
+              <div className="relative z-10 flex flex-col gap-4 md:gap-6 items-center justify-center h-full text-center text-white px-5 max-w-4xl mx-auto">
+                <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold leading-tight">
                   {slide.title.split(" ").map((word, index, arr) =>
                     index >= arr.length - 2 ? (
                       <span key={index} className="text-red-500">
@@ -52,42 +58,25 @@ const Hero = () => {
                         {word}
                       </span>
                     ) : (
-                      <span key={index}> {word}</span>
+                      <span key={index}>{word} </span>
                     ),
                   )}
                 </h1>
 
-                <p className="mt-3 text-lg text-gray-500 opacity-90">
+                <p className="text-lg md:text-xl text-gray-200 opacity-95 max-w-2xl">
                   {slide.desc}
                 </p>
-                <CtnBtn>Explore More</CtnBtn>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
 
-      {/* Second Swiper - Image slides */}
-      <section className="w-full">
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          navigation={true}
-          className="w-full h-[500px]"
-        >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${slide.img})` }}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+                <div className="mt-4 md:mt-6">
+                  <CtnBtn>Explore More</CtnBtn>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Beauty Deal section – remains unchanged */}
       <div className="bg-gray-100 flex flex-col gap-4 text-center py-10 w-full">
         <h2 className="text-4xl font-semibold">Beauty Deal</h2>
         <p className="text-xl px-5 text-gray-600">
