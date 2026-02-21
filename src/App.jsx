@@ -5,6 +5,8 @@ import NavBar from "./components/home/NavBar";
 import FeaturedProducts from "./components/home/FeaturedProducts";
 import Lipstick from "./components/common/Lipstick";
 import RevealingBeauty from "./components/common/RevealingBeauty";
+import GlowSection from "./components/common/GlowSection";
+import Reviews from "./components/common/Reviews";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
       <FeaturedProducts />
       <Lipstick />
       <RevealingBeauty />
+      <GlowSection />
+      <Reviews />
     </>
   );
 };
