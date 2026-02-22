@@ -22,7 +22,7 @@ const MailingListCTA = () => {
             and special offers
           </p>
         </h2>
-        <div className="max-w-3xl mx-auto px-4">
+        <div className="max-w-3xl mx-auto px-4 ">
           <form className="flex flex-col sm:flex-row gap-3">
             <input
               type="email"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Search, Heart, User, ShoppingBag, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [SearchIon, setSearchIon] = useState(false);
@@ -9,17 +10,31 @@ const NavBar = () => {
     <section className="w-full p-5 relative">
       <nav className="container mx-auto flex items-center justify-between lg:justify-center relative">
         {/* Left menu */}
-        <ul className="hidden cursor-pointer lg:flex absolute left-0 space-x-6 text-gray-700 font-semibold h-full items-center">
+        <ul className="hidden lg:flex absolute left-0 space-x-6 text-gray-700 font-semibold h-full items-center">
           <li className="hover:text-red-500">Collection</li>
-          <li className="hover:text-red-500">Shop</li>
-          <li className="hover:text-red-500">About</li>
-          <li className="hover:text-red-500">Blog</li>
-          <li className="hover:text-red-500">Magazine</li>
+
+          <li className="hover:text-red-500">
+            <Link to="/shop">Shop</Link>
+          </li>
+
+          <li className="hover:text-red-500">
+            <Link to="/about">About</Link>
+          </li>
+
+          <li className="hover:text-red-500">
+            <Link to="/blog">Blog</Link>
+          </li>
+
+          <li className="hover:text-red-500">
+            <Link to="/magazine">Magazine</Link>
+          </li>
         </ul>
 
         {/* Logo */}
         <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-          <img src="./logo.png" alt="Logo" width={150} />
+          <Link to={"/"}>
+            <img src="./logo.png" alt="Logo" width={150} />
+          </Link>
         </div>
 
         {/* Right icons */}

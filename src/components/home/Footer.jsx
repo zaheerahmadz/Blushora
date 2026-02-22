@@ -15,9 +15,9 @@ const Footer = () => {
     <footer className="bg-gray-50 text-gray-700 my-10 relative">
       {/* Top Info Cards */}
       {/* Top Info Cards */}
-      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl px-6 py-6 flex flex-wrap justify-between items-center gap-4 -mt-12 relative z-10">
+      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl px-6 py-6 flex flex-wrap justify-between items-center gap-4  relative z-10">
         {/* Card */}
-        <div className="flex flex-1 min-w-[220px] items-center gap-3">
+        <div className="flex flex-1 min-w-[220px]  items-center gap-3">
           <div className="bg-red-500 text-white p-3 rounded-full">
             <FaTruck size={18} />
           </div>

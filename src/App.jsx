@@ -10,19 +10,37 @@ import Reviews from "./components/common/Reviews";
 import Discover from "./components/common/Discover";
 import MailingListCTA from "./components/common/MailingListCTA";
 import Footer from "./components/home/Footer";
+import Shop from "./pages/Shop/Shop";
+import Magazine from "./pages/Magazine/Magazine";
+import Blog from "./pages/Blog/Blog";
+import About from "./pages/about/About";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <Hero />
-      <FeaturedProducts />
-      <Lipstick />
-      <RevealingBeauty />
-      <GlowSection />
-      <Reviews />
-      <Discover />
-      <MailingListCTA />
+      <Routes>
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/magazine" element={<Magazine />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <FeaturedProducts />
+              <Lipstick />
+              <RevealingBeauty />
+              <GlowSection />
+              <Reviews />
+              <Discover />
+              <MailingListCTA />
+            </>
+          }
+        />
+      </Routes>
       <Footer />
     </>
   );

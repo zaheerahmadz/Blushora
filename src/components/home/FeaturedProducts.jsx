@@ -5,6 +5,7 @@ import CtnBtn from "../common/CtnBtn";
 
 const FeaturedProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState("Lotion");
+  const [ActiveId, setActiveId] = useState(null);
 
   const filteredProducts = Products.filter(
     (product) => product.category === selectedCategory,
@@ -24,19 +25,36 @@ const FeaturedProducts = () => {
           <div className="flex justify-center flex-wrap gap-6 md:gap-12 lg:gap-20 mb-12">
             {category.map((item, index) => {
               const { img, category: catName } = item;
+              const isActive = selectedCategory === catName;
 
               return (
                 <div
                   key={index}
                   onClick={() => setSelectedCategory(catName)}
-                  className="flex cursor-pointer flex-col items-center gap-3 group"
+                  className="flex cursor-pointer flex-col items-center gap-3 group transition-all duration-300"
                 >
-                  <img
-                    className="border border-red-500 p-2 md:p-3 rounded-full w-16 h-16 md:w-20 md:h-20 object-cover transition-all duration-200 group-hover:bg-pink-200"
-                    src={img}
-                    alt={catName}
-                  />
-                  <h2 className="capitalize text-sm md:text-lg group-hover:text-red-500">
+                  <div
+                    className={`rounded-full p-2 md:p-3 transition-all duration-300
+          ${
+            isActive
+              ? "bg-red-500 scale-110 shadow-lg"
+              : "border border-red-500 group-hover:bg-pink-200"
+          }`}
+                  >
+                    <img
+                      className={`rounded-full w-16 h-16 md:w-20 md:h-20 object-cover transition-all duration-300
+            ${isActive ? "brightness-0 invert" : ""}
+            `}
+                      src={img}
+                      alt={catName}
+                    />
+                  </div>
+
+                  <h2
+                    className={`capitalize text-sm md:text-lg transition-all duration-300
+          ${isActive ? "text-red-500 font-semibold" : "group-hover:text-red-500"}
+          `}
+                  >
                     {catName}
                   </h2>
                 </div>
@@ -49,7 +67,15 @@ const FeaturedProducts = () => {
             {filteredProducts.map((item) => (
               <div
                 key={item.id}
-                className="bg-gray-100 relative rounded-2xl shadow-md hover:shadow-2xl transition overflow-hidden"
+                onClick={() => setActiveId(item.id)}
+                className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300
+      
+      ${
+        ActiveId === item.id
+          ? "bg-white scale-105 shadow-2xl ring-2 ring-red-500"
+          : "bg-gray-100 hover:shadow-xl"
+      }
+      `}
               >
                 {/* Image */}
                 <div className="relative group aspect-square overflow-hidden rounded-t-2xl">
@@ -62,7 +88,10 @@ const FeaturedProducts = () => {
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300" />
 
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <CtnBtn className="px-4 py-2 text-xs md:text-sm">
+                    <CtnBtn
+                      className="px-4 py-2 text-xs md:text-sm"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       Add To Cart
                     </CtnBtn>
                   </div>
@@ -84,7 +113,11 @@ const FeaturedProducts = () => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-center px-2 pb-4 text-sm md:text-base hover:text-red-500 text-gray-900">
+                <h2
+                  className={`text-center px-2 pb-4 text-sm md:text-base transition
+        ${ActiveId === item.id ? "text-red-500 font-semibold" : "text-gray-900"}
+        `}
+                >
                   {item.info}
                 </h2>
               </div>
