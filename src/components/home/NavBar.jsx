@@ -114,11 +114,21 @@ const NavBar = () => {
 
           {/* Links */}
           <ul className="flex flex-col gap-8 text-lg font-semibold text-gray-700 px-5">
-            <li className="hover:text-red-500">Collection</li>
-            <li className="hover:text-red-500">Shop</li>
-            <li className="hover:text-red-500">About</li>
-            <li className="hover:text-red-500">Blog</li>
-            <li className="hover:text-red-500">Magazine</li>
+            <Link to="/collection" className="hover:text-red-500">
+              Collection
+            </Link>
+            <Link to="/shop" className="hover:text-red-500">
+              Shop
+            </Link>
+            <Link to="/about" className="hover:text-red-500">
+              About
+            </Link>
+            <Link to="/blog" className="hover:text-red-500">
+              Blog
+            </Link>
+            <Link to="/magazine" className="hover:text-red-500">
+              Magazine
+            </Link>
           </ul>
           <div className="flex p-5 w-full justify-between ">
             <div className="flex gap-5">
