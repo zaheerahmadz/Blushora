@@ -90,7 +90,9 @@ const NavBar = () => {
         <div className="fixed inset-0 p-5 bg-white z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-5 border-b">
-            <img src="./logo.png" alt="Logo" width={130} />
+            <Link to={"/"}>
+              <img src="./logo.png" alt="Logo" width={150} />
+            </Link>
             <X
               size={28}
               className="cursor-pointer"

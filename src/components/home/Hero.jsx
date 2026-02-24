@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/controller"; // ← important for controller visuals if needed
 
 import CtnBtn from "../common/CtnBtn";
+import { Link } from "lucide-react";
 
 const slides = [
   {
@@ -67,7 +68,7 @@ const Hero = () => {
                 <p className="mt-3 text-lg text-gray-500 opacity-90">
                   {slide.desc}
                 </p>
-                <CtnBtn>Explore More</CtnBtn>
+                <CtnBtn to="/collection">Explore More</CtnBtn>
               </div>
             </SwiperSlide>
           ))}
