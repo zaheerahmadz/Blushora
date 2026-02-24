@@ -1,5 +1,6 @@
 import React from "react";
 import CtnBtn from "./CtnBtn";
+import SliderAbout from "./SliderAbout";
 
 const Discover = () => {
   return (
@@ -47,6 +48,7 @@ const Discover = () => {
           </div>
         </div>
       </div>
+      <SliderAbout />
     </section>
   );
 };

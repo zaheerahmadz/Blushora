@@ -5,6 +5,8 @@ import { SiAnimalplanet } from "react-icons/si";
 import { Data1, Data2 } from "../../constant/data";
 import { TbLamp2 } from "react-icons/tb";
 import Journey from "../../components/common/Journey";
+import Founders from "../../components/common/Founders";
+import SliderAbout from "../../components/common/SliderAbout";
 
 const About = () => {
   return (
@@ -141,6 +143,12 @@ const About = () => {
       </div>
       <div className="my-10">
         <Journey />
+      </div>
+      <div>
+        <Founders />
+      </div>
+      <div>
+        <SliderAbout />
       </div>
     </section>
   );
