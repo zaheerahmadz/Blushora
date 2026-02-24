@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const [SearchIon, setSearchIon] = useState(false);
   const [MobileShow, setMobileShow] = useState(false);
+  const closeMenu = () => setMobileShow(false);
 
   return (
     <section className="w-full p-5 relative">
@@ -114,19 +115,31 @@ const NavBar = () => {
 
           {/* Links */}
           <ul className="flex flex-col gap-8 text-lg font-semibold text-gray-700 px-5">
-            <Link to="/collection" className="hover:text-red-500">
+            <Link
+              to="/collection"
+              onClick={closeMenu}
+              className="hover:text-red-500"
+            >
               Collection
             </Link>
-            <Link to="/shop" className="hover:text-red-500">
+            <Link to="/shop" onClick={closeMenu} className="hover:text-red-500">
               Shop
             </Link>
-            <Link to="/about" className="hover:text-red-500">
+            <Link
+              to="/about"
+              onClick={closeMenu}
+              className="hover:text-red-500"
+            >
               About
             </Link>
-            <Link to="/blog" className="hover:text-red-500">
+            <Link to="/blog" onClick={closeMenu} className="hover:text-red-500">
               Blog
             </Link>
-            <Link to="/magazine" className="hover:text-red-500">
+            <Link
+              to="/magazine"
+              onClick={closeMenu}
+              className="hover:text-red-500"
+            >
               Magazine
             </Link>
           </ul>
