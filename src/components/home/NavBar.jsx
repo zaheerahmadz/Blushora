@@ -40,11 +40,11 @@ const NavBar = () => {
 
         {/* Right icons */}
         <div className="flex items-center space-x-6 ml-auto">
-          <div className="hidden lg:flex items-center gap-6 text-black">
+          <div className="hidden z-50 lg:flex items-center gap-6 text-black">
             <Search
               onClick={() => setSearchIon(!SearchIon)}
               size={22}
-              className="hover:text-red-500 cursor-pointer"
+              className="hover:text-red-500  cursor-pointer"
             />
             <Heart size={22} className="hover:text-red-500 cursor-pointer" />
             <User size={22} className="hover:text-red-500 cursor-pointer" />
@@ -70,7 +70,7 @@ const NavBar = () => {
         {/* Desktop search */}
         {SearchIon && (
           <div className="absolute top-16 right-5 hidden lg:block">
-            <div className="relative w-72 bg-white shadow-lg p-5 rounded-md">
+            <div className="relative w-72 z-50 bg-white shadow-lg p-5 rounded-md">
               <input
                 className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-red-500"
                 type="text"

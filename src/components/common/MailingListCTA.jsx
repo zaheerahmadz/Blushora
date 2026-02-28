@@ -9,11 +9,12 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import CtnBtn from "./CtnBtn";
+import TopCard from "./TopCard";
 
 const MailingListCTA = () => {
   return (
     <>
-      <section className=" w-full h-60 bg-[url('/hero.png')] bg-cover bg-center bg-no-repeat">
+      <section className=" w-full lg:h-80 md:h-1/12 bg-[url('/hero.png')] bg-cover bg-center bg-no-repeat">
         <h2 className="text-center text-4xl py-5">
           SIGN-UP THE{" "}
           <span className="text-red-600 ">BEAUTY FAN CLUB TODAY</span>
@@ -22,7 +23,7 @@ const MailingListCTA = () => {
             and special offers
           </p>
         </h2>
-        <div className="max-w-3xl mx-auto px-4 ">
+        <div className="max-w-3xl mx-auto px-4 py-5 ">
           <form className="flex flex-col sm:flex-row gap-3">
             <input
               type="email"
@@ -35,6 +36,8 @@ const MailingListCTA = () => {
             </CtnBtn>
           </form>
         </div>
+
+        <TopCard />
       </section>
     </>
   );
