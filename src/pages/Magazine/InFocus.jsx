@@ -1,13 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const InFocus = () => {
+  const navigate = useNavigate();
   return (
     <section className="max-w-6xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-serif text-center mb-10">In Focus</h2>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Card 1 */}
-        <div className="bg-white hover:shadow-2xl cursor-pointer shadow-lg rounded-lg overflow-hidden">
+        <div
+          onClick={() => navigate(`/magazine/Mag_4`)}
+          className="bg-white hover:shadow-2xl cursor-pointer shadow-lg rounded-lg overflow-hidden"
+        >
           <img
             src="/images/mag_Info1.png" // replace with your image
             alt="Trend Report"
@@ -27,7 +32,10 @@ const InFocus = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white shadow-lg hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
+        <div
+          onClick={() => navigate(`/magazine/Mag_5`)}
+          className="bg-white shadow-lg hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden"
+        >
           <img
             src="/images/mag_Info2.png" // replace with your image
             alt="Sustainability Edit"

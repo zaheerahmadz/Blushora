@@ -3,10 +3,11 @@ import { GoDotFill } from "react-icons/go";
 import MagData from "./MagData";
 import InFocus from "./InFocus";
 import LatestStories from "./LatestStories";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Magazine = () => {
   const navigate = useNavigate();
+
   return (
     <section className="py-10 w-full">
       <div className="max-w-8xl mx-auto px-5">
@@ -32,7 +33,7 @@ const Magazine = () => {
           {/* Left Large Image */}
 
           <div
-            onClick={() => navigate("/magazine/1")}
+            onClick={() => navigate(`/magazine/Mag_1`)}
             className="w-full lg:w-2/3 cursor-pointer overflow-hidden rounded-2xl"
           >
             <img
@@ -94,6 +95,7 @@ const Magazine = () => {
             <div className="flex flex-col gap-5 mt-5">
               {MagData.map((item, index) => (
                 <div
+                  onClick={() => navigate(`/magazine/${item.slug}`)}
                   key={index}
                   className="cursor-pointer rounded-2xl overflow-hidden transition-transform duration-500 hover:scale-105"
                 >

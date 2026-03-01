@@ -1,7 +1,9 @@
 import React from "react";
 import stories from "./stories";
+import { useNavigate } from "react-router-dom";
 
 const LatestStories = () => {
+  const navigate = useNavigate();
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 font-sans">
       {/* Header Section */}
@@ -20,7 +22,11 @@ const LatestStories = () => {
       {/* Grid Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {stories.map((story) => (
-          <div key={story.id} className="group cursor-pointer">
+          <div
+            onClick={() => navigate(`/magazine/${story.slug}`)}
+            key={story.id}
+            className="group cursor-pointer"
+          >
             {/* Image Container */}
             <div className="aspect-[4/3] overflow-hidden mb-4">
               <img

@@ -16,6 +16,7 @@ import Blog from "./pages/Blog/Blog";
 import About from "./pages/about/About";
 import { Routes, Route } from "react-router-dom";
 import Collection from "./pages/Collection/Collection";
+import MagDetails from "./pages/Magazine/MagDetails";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/magazine" element={<Magazine />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
+        <Route path="/magazine/:slug" element={<MagDetails />} />
 
         <Route
           path="/"
