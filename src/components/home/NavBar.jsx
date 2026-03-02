@@ -34,7 +34,7 @@ const NavBar = () => {
         {/* Logo */}
         <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           <Link to={"/"}>
-            <img src="./logo.png" alt="Logo" width={150} />
+            <img src="/logo.png" alt="Logo" className="h-10" />
           </Link>
         </div>
 
