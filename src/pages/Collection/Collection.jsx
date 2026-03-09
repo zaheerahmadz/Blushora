@@ -13,7 +13,7 @@ const Collection = () => {
         <h1 className="text-center text-5xl">
           Our <span className="text-red-500">Collection</span>
         </h1>
-        <p className="text-center w-150 mx-auto text-gray-500 py-2">
+        <p className="text-center px-5 text-sm mx-auto text-gray-500 py-2">
           Discover our carefully curated collections, each inspired by the
           changing seasons and the timeless beauty of nature.
         </p>
