@@ -1,5 +1,6 @@
 import React from "react";
 import ReviewsData from "../../constant/ReviewsData";
+import { MdOutlineVerifiedUser } from "react-icons/md";
 const Reviews = () => {
   return (
     <>
@@ -17,12 +18,14 @@ const Reviews = () => {
                 className="p-5 shadow-2xl rounded-2xl py-10 cursor-pointer hover:scale-105 transition-all duration-300 bg-white"
                 key={index}
               >
-                <h2 className="py-2">{rate}</h2>
-                <h3 className="text-md text-gray-600 py-2 pe-5">{info}</h3>
+                <h2 className="py-2 tet">{rate}</h2>
+                <h3 className="text-md text-sm text-gray-600 py-2 pe-5">
+                  {info}
+                </h3>
                 <div className="flex items-center py-10 gap-5">
                   <img src={img} className="rounded-full w-15 h-15" alt="" />
-                  <div className="flex flex-col">
-                    <h3 className="text-xm">{name}</h3>
+                  <div className="flex justify-center text-green-500 items-center gap-2">
+                    <MdOutlineVerifiedUser />
                     <p className="text-gray-500 text-sm">{user}</p>
                   </div>
                 </div>

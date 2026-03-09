@@ -4,9 +4,13 @@ import MagData from "./MagData";
 import InFocus from "./InFocus";
 import LatestStories from "./LatestStories";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Magazine = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="py-10 w-full">
@@ -19,7 +23,6 @@ const Magazine = () => {
           BlushOra <span className="text-red-500">Magazine</span>
         </h2>
 
-        {/* Categories */}
         <div className="flex flex-wrap justify-center items-center gap-3 md:gap-5 mt-5">
           <p className="text-gray-600 text-lg md:text-xl">Beauty</p>
           <GoDotFill size={10} className="text-red-600" />
@@ -28,10 +31,7 @@ const Magazine = () => {
           <p className="text-gray-600 text-lg md:text-xl">Lifestyle</p>
         </div>
 
-        {/* Main Content */}
         <div className="flex flex-wrap lg:flex-nowrap gap-5 md:gap-10 lg:gap-20 mt-10 max-w-6xl mx-auto">
-          {/* Left Large Image */}
-
           <div
             onClick={() => navigate(`/magazine/Mag_1`)}
             className="w-full lg:w-2/3 cursor-pointer overflow-hidden rounded-2xl"
@@ -42,22 +42,18 @@ const Magazine = () => {
               alt="Magazine cover"
             />
             <section className="max-w-3xl mx-auto px-4 py-8">
-              {/* Cover Label */}
               <span className="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                 Cover Story
               </span>
 
-              {/* Title */}
               <h1 className="mt-4 text-4xl hover:text-red-500 md:text-5xl font-serif font-semibold text-gray-900 leading-tight">
                 The Renaissance of Rouge
               </h1>
 
-              {/* Subtitle */}
               <p className="mt-2 text-gray-600  text-lg md:text-xl">
                 Why the classic red lip is making a comeback in 2024
               </p>
 
-              {/* Author & Read Time */}
               <div className="mt-4 flex items-center text-gray-500 text-sm space-x-3">
                 <span>By Eleanor Vance</span>
                 <span>•</span>
@@ -65,27 +61,23 @@ const Magazine = () => {
               </div>
             </section>
             <section className="w-full max-w-sm  my-10 p-6 bg-white rounded-2xl shadow-md text-center">
-              {/* Title */}
               <h2 className="text-xl font-semibold mb-2">The Newsletter</h2>
               <p className="text-gray-500 mb-4 text-sm">
                 Weekly beauty edits, straight to your inbox.
               </p>
 
-              {/* Input */}
               <input
                 type="email"
                 placeholder="Your email address"
                 className="w-full px-4 py-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               />
 
-              {/* Button */}
               <button className="w-full bg-black text-white py-3 rounded-2xl hover:bg-red-600 font-semibold  cursor-pointer transition-colors">
                 SUBSCRIBE
               </button>
             </section>
           </div>
 
-          {/* Right Trending Stories */}
           <div className="w-full lg:w-1/3">
             <h3 className="font-semibold text-sm uppercase">
               Trending Stories

@@ -3,7 +3,6 @@ import { FaTruck, FaPhone, FaHeadset, FaSyncAlt } from "react-icons/fa";
 const TopCard = () => {
   return (
     <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl px-6 py-6 flex flex-wrap justify-between items-center gap-4  relative z-10">
-      {/* Card */}
       <div className="flex flex-1 min-w-[220px]  items-center gap-3">
         <div className="bg-red-500 text-white p-3 rounded-full">
           <FaTruck size={18} />

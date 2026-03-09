@@ -6,7 +6,7 @@ const CtnBtn = ({
   className = "",
   bg = "bg-red-500",
   hoverText = "group-hover:text-red-500",
-  to = null, // optional navigation
+  to = null,
 }) => {
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const CtnBtn = ({
   const defaultSize = "px-6 py-3 text-lg";
 
   const handleClick = () => {
-    if (to) navigate(to); // client-side routing
+    if (to) navigate(to);
   };
 
   return (
@@ -24,13 +24,10 @@ const CtnBtn = ({
       onClick={handleClick}
       className={`${base} ${defaultSize} ${className}`}
     >
-      {/* background (always behind) */}
       <span className={`absolute inset-0 ${bg} rounded-md z-0`}></span>
 
-      {/* hover slide overlay */}
       <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-md z-10"></span>
 
-      {/* content */}
       <span
         className={`relative z-20 transition-colors duration-500 ${hoverText}`}
       >

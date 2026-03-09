@@ -6,7 +6,6 @@ const LatestStories = () => {
   const navigate = useNavigate();
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 font-sans">
-      {/* Header Section */}
       <div className="flex justify-between items-baseline border-b border-gray-100 pb-4 mb-8">
         <h2 className="text-3xl md:text-4xl font-serif text-gray-900">
           Latest Stories
@@ -19,7 +18,6 @@ const LatestStories = () => {
         </a>
       </div>
 
-      {/* Grid Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {stories.map((story) => (
           <div
@@ -27,7 +25,6 @@ const LatestStories = () => {
             key={story.id}
             className="group cursor-pointer"
           >
-            {/* Image Container */}
             <div className="aspect-[4/3] overflow-hidden mb-4">
               <img
                 src={story.imageUrl}
@@ -36,7 +33,6 @@ const LatestStories = () => {
               />
             </div>
 
-            {/* Content */}
             <div className="space-y-2">
               <span className="text-[10px] tracking-[0.15em] font-bold text-pink-600 uppercase">
                 {story.category}

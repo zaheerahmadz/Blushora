@@ -2,8 +2,12 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import MagData from "../../constant/MagData";
 import { Twitter, Facebook, Linkedin } from "lucide-react";
+import { useEffect } from "react";
 
 const MagDetails = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { slug } = useParams();
   const article = MagData.find((item) => item.slug === slug);
 
@@ -74,9 +78,7 @@ const MagDetails = () => {
         />
       </div>
 
-      {/* Main content + sticky sidebars */}
       <div className="max-w-7xl mx-auto px-5 flex gap-8 lg:gap-12 xl:gap-16 relative">
-        {/* LEFT Sticky Social Sidebar */}
         <aside className="hidden lg:flex flex-col items-center sticky top-24 h-fit">
           <div className="w-px h-16 bg-gray-200 mb-6"></div>
           <span
@@ -110,7 +112,6 @@ const MagDetails = () => {
           </div>
         </aside>
 
-        {/* Main Article Content */}
         <article className="flex-1 max-w-3xl pb-20">
           <p className="text-gray-700 leading-relaxed md:leading-9 text-base md:text-lg lg:text-xl mb-10 md:mb-12">
             {article.para_1}
@@ -158,7 +159,6 @@ const MagDetails = () => {
           </div>
         </article>
 
-        {/* RIGHT Sticky Shop The Look Panel (xl screens only) */}
         <aside className="hidden xl:flex flex-col sticky top-24 h-fit w-80 min-w-[20rem] max-w-xs">
           <div className="mb-6 text-center">
             <span className="inline-block uppercase text-xs font-bold tracking-widest text-red-600 bg-red-50 px-4 py-1.5 rounded-full">
@@ -186,15 +186,9 @@ const MagDetails = () => {
               Add to Cart
             </button>
           </div>
-
-          {/* Optional second product - uncomment & customize if needed */}
-          {/* <div className="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 ...">
-            ... another product card ...
-          </div> */}
         </aside>
       </div>
 
-      {/* Mobile / Tablet fallback - Shop The Look section */}
       <section className="xl:hidden bg-gray-50 py-12 md:py-16 mt-12">
         <div className="max-w-5xl mx-auto px-5">
           <h2 className="text-3xl md:text-4xl font-serif text-center text-[#001D3D] mb-10 tracking-tight">
@@ -222,8 +216,6 @@ const MagDetails = () => {
                 Add to Cart
               </button>
             </div>
-
-            {/* Add more product cards here when you have them */}
           </div>
         </div>
       </section>

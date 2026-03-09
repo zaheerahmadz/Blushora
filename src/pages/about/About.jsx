@@ -11,7 +11,6 @@ import SliderAbout from "../../components/common/SliderAbout";
 const About = () => {
   return (
     <section className="w-full bg-white">
-      {/* Top banner */}
       <div className="w-full">
         <img
           className="w-full object-cover max-h-[420px] md:max-h-[520px]"
@@ -20,7 +19,6 @@ const About = () => {
         />
       </div>
 
-      {/* Heading */}
       <div className="text-center px-4">
         <h2 className="py-6 text-3xl sm:text-4xl font-semibold">Blushora</h2>
         <p className="pb-10 text-gray-600 max-w-2xl mx-auto">
@@ -29,9 +27,7 @@ const About = () => {
         </p>
       </div>
 
-      {/* Section 1 */}
       <div className="max-w-6xl mx-auto px-4 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        {/* Image */}
         <div className="overflow-hidden rounded-3xl h-[320px] sm:h-[420px] lg:h-[520px]">
           <img
             src="/images/about2.jpg"
@@ -40,7 +36,6 @@ const About = () => {
           />
         </div>
 
-        {/* Content */}
         <div>
           <PiPlantLight
             className="bg-pink-100 rounded-full text-pink-600 p-2"
@@ -68,9 +63,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Section 2 */}
       <div className="max-w-6xl mx-auto px-4 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        {/* Content */}
         <div className="lg:order-1">
           <PiPlantLight
             className="bg-pink-100 rounded-full text-pink-600 p-2"
@@ -97,7 +90,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Image */}
         <div className="overflow-hidden rounded-3xl h-[320px] sm:h-[420px] lg:h-[520px] lg:order-2">
           <img
             src="/images/about3.jpg"

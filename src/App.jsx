@@ -18,6 +18,8 @@ import { Routes, Route } from "react-router-dom";
 import Collection from "./pages/Collection/Collection";
 import MagDetails from "./pages/Magazine/MagDetails";
 import BlogDetails from "./pages/Blog/BlogDetails";
+import Wishlist from "./pages/Seller/Wishlist";
+import Cart from "./pages/Seller/Cart";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/collection" element={<Collection />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/magazine" element={<Magazine />} />
         <Route path="/blog" element={<Blog />} />

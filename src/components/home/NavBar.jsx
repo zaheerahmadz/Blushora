@@ -8,12 +8,12 @@ const NavBar = () => {
   const closeMenu = () => setMobileShow(false);
 
   return (
-    <section className="w-full p-5 relative">
-      <nav className="container mx-auto flex items-center justify-between lg:justify-center relative">
-        {/* Left menu */}
+    <section className="w-full p-5 bg-white sticky top-0 z-50">
+      <nav className="container  mx-auto flex items-center justify-between lg:justify-center relative">
         <ul className="hidden lg:flex absolute left-0 space-x-6 text-gray-700 font-semibold h-full items-center">
-          <li className="hover:text-red-500">Collection</li>
-
+          <li className="hover:text-red-500">
+            <Link to="/collection">Collection</Link>
+          </li>
           <li className="hover:text-red-500">
             <Link to="/shop">Shop</Link>
           </li>
@@ -31,14 +31,12 @@ const NavBar = () => {
           </li>
         </ul>
 
-        {/* Logo */}
         <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           <Link to={"/"}>
-            <img src="/logo.png" alt="Logo" className="h-10" />
+            <img src="/logo.png" alt="Logo" className="h-8" />
           </Link>
         </div>
 
-        {/* Right icons */}
         <div className="flex items-center space-x-6 ml-auto">
           <div className="hidden z-50 lg:flex items-center gap-6 text-black">
             <Search
@@ -46,20 +44,23 @@ const NavBar = () => {
               size={22}
               className="hover:text-red-500  cursor-pointer"
             />
-            <Heart size={22} className="hover:text-red-500 cursor-pointer" />
+            <Link to={"/wishlist"}>
+              <Heart size={22} className="hover:text-red-500 cursor-pointer" />
+            </Link>
             <User size={22} className="hover:text-red-500 cursor-pointer" />
             <div className="relative">
-              <ShoppingBag
-                size={22}
-                className="hover:text-red-500 cursor-pointer"
-              />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                4
-              </span>
+              <Link to={"/cart"}>
+                <ShoppingBag
+                  size={22}
+                  className="hover:text-red-500 cursor-pointer"
+                />
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  4
+                </span>
+              </Link>
             </div>
           </div>
 
-          {/* Mobile icon */}
           <Menu
             onClick={() => setMobileShow(true)}
             className="block lg:hidden cursor-pointer"
@@ -67,7 +68,6 @@ const NavBar = () => {
           />
         </div>
 
-        {/* Desktop search */}
         {SearchIon && (
           <div className="absolute top-16 right-5 hidden lg:block">
             <div className="relative w-72 z-50 bg-white shadow-lg p-5 rounded-md">
@@ -85,7 +85,6 @@ const NavBar = () => {
         )}
       </nav>
 
-      {/* ✅ Mobile Panel */}
       {MobileShow && (
         <div className="fixed inset-0 p-5 bg-white z-50 flex flex-col">
           {/* Header */}
@@ -100,7 +99,6 @@ const NavBar = () => {
             />
           </div>
 
-          {/* Search */}
           <div className="p-5">
             <div className="relative">
               <input
@@ -115,7 +113,6 @@ const NavBar = () => {
             </div>
           </div>
 
-          {/* Links */}
           <ul className="flex flex-col gap-8 text-lg font-semibold text-gray-700 px-5">
             <Link
               to="/collection"

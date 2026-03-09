@@ -1,6 +1,7 @@
 import React from "react";
 import CtnBtn from "./CtnBtn";
 import SliderAbout from "./SliderAbout";
+import { Link } from "react-router-dom";
 
 const Discover = () => {
   return (
@@ -14,9 +15,7 @@ const Discover = () => {
         essentials while saving you money
       </p>
 
-      {/* GRID */}
       <div className="max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 py-10 mx-auto px-4">
-        {/* CARD 1 */}
         <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
           <img
             src="/images/Winter.jpg"
@@ -28,11 +27,12 @@ const Discover = () => {
             <h2 className="text-2xl md:text-2xl font-semibold">
               Winter Collection
             </h2>
-            <CtnBtn className="bg-red-500 shadow-2xl">Shop now</CtnBtn>
+            <Link to={"/shop"}>
+              <CtnBtn className="bg-red-500 shadow-2xl">Shop now</CtnBtn>
+            </Link>
           </div>
         </div>
 
-        {/* CARD 2 */}
         <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
           <img
             src="/images/Blogs.jpg"
@@ -44,7 +44,9 @@ const Discover = () => {
             <h2 className="text-2xl md:text-2xl font-semibold">
               From Our Blogs
             </h2>
-            <CtnBtn className="bg-red-500 shadow-2xl">Read More</CtnBtn>
+            <Link to={"/blog"}>
+              <CtnBtn className="bg-red-500 shadow-2xl">Read More</CtnBtn>
+            </Link>
           </div>
         </div>
       </div>

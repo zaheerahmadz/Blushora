@@ -26,7 +26,6 @@ const journeyData = [
 const Journey = () => {
   return (
     <section className="py-16 md:py-20 bg-gray-50">
-      {/* Heading */}
       <div className="text-center mb-12 md:mb-16 px-4">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
           Our <span className="text-red-600">Journey</span>
@@ -36,12 +35,10 @@ const Journey = () => {
         </p>
       </div>
 
-      {/* Timeline container */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Horizontal line - hidden on very small screens */}
         <div className="hidden md:block absolute top-1/2 left-4 right-4 h-1 bg-pink-200 -translate-y-1/2 rounded"></div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 relative">
           {journeyData.map((item, index) => (
             <div
@@ -51,12 +48,10 @@ const Journey = () => {
                 ${index % 2 === 0 ? "md:mt-16" : "md:-mt-4"}
               `}
             >
-              {/* Circle / Dot */}
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-500 border-4 border-white shadow-md z-10 flex items-center justify-center text-white font-bold text-sm md:text-base">
                 {index + 1}
               </div>
 
-              {/* Content card */}
               <div
                 className={`
                   mt-4 md:mt-6 w-full max-w-xs md:max-w-[220px] lg:max-w-[260px]
@@ -73,7 +68,6 @@ const Journey = () => {
                 </p>
               </div>
 
-              {/* Connecting line - only on mobile (vertical) */}
               {index < journeyData.length - 1 && (
                 <div className="md:hidden absolute top-full left-1/2 w-0.5 h-10 bg-pink-300 -translate-x-1/2 mt-4"></div>
               )}

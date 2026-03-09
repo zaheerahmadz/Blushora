@@ -52,13 +52,10 @@ const SliderAbout = () => {
         Our <span className="text-red-500">Gallery</span>
       </h2>
 
-      {/* Top Slider */}
       <Row />
 
-      {/* Space Between */}
       <div className="h-6 md:h-10" />
 
-      {/* Bottom Opposite Slider */}
       <Row reverse />
 
       <style>{`

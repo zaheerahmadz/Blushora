@@ -1,18 +1,17 @@
 import React from "react";
 import CtnBtn from "./CtnBtn";
 import GlowProducts from "../../constant/GlowProducts";
+import { Link } from "react-router-dom";
 
 const GlowSection = () => {
   return (
     <section className="py-12">
-      {/* Heading */}
       <h2 className="text-center text-2xl sm:text-3xl md:text-4xl mb-8">
         The Glow <span className="text-red-500">Everyone Wants</span>
       </h2>
 
       <div className="w-full bg-[url('/love.png')] bg-cover bg-center bg-no-repeat py-10 md:py-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row gap-8">
-          {/* LEFT BANNER */}
           <div className="relative w-full lg:w-5/12 rounded-2xl overflow-hidden shadow-xl group">
             <img
               src="/images/lifestyle-3.jpg"
@@ -30,21 +29,20 @@ const GlowSection = () => {
               <p className="py-3 text-sm sm:text-base">
                 Skin That Feels as Good as It Looks
               </p>
-
-              <CtnBtn className="bg-red-500 px-5 py-2 !w-auto !inline-block rounded-xl text-sm">
-                Explore More
-              </CtnBtn>
+              <Link to={"/collection"}>
+                <CtnBtn className="bg-red-500 px-5 py-2 !w-auto !inline-block rounded-xl text-sm">
+                  Explore More
+                </CtnBtn>
+              </Link>
             </div>
           </div>
 
-          {/* PRODUCTS */}
           <div className="lg:w-7/12 w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
             {GlowProducts.map((item) => (
               <div
                 key={item.id}
                 className="bg-gray-100 relative rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
               >
-                {/* Image */}
                 <div className="relative group bg-cover bg-center aspect-square overflow-hidden rounded-t-2xl">
                   <img
                     src={item.img}
@@ -61,7 +59,6 @@ const GlowSection = () => {
                   </div>
                 </div>
 
-                {/* Sale */}
                 <span className="bg-red-500 absolute top-2 left-2 px-2 py-1 rounded-md text-white text-[10px] sm:text-xs uppercase">
                   Sale
                 </span>
@@ -75,8 +72,6 @@ const GlowSection = () => {
                     Rs.{item.Price}
                   </span>
                 </div>
-
-                {/* Title */}
                 <h3 className="text-center px-2 pb-4 text-xs sm:text-sm md:text-base hover:text-red-500 text-gray-900">
                   {item.info}
                 </h3>

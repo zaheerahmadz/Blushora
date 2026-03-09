@@ -30,7 +30,6 @@ const Founders = () => {
 
             return (
               <div className="text-center" key={index}>
-                {/* Image */}
                 <div className="w-44 h-44 md:w-56 md:h-56 mx-auto overflow-hidden rounded-full">
                   <img
                     src={img}
@@ -39,7 +38,6 @@ const Founders = () => {
                   />
                 </div>
 
-                {/* Text */}
                 <h2 className="text-2xl md:text-3xl mt-4 font-medium">
                   {Name}
                 </h2>

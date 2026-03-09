@@ -99,7 +99,6 @@ const Hero = () => {
         </Swiper>
       </section>
 
-      {/* Beauty Deal - unchanged */}
       <div className="bg-gray-100 flex flex-col gap-4 text-center py-10 w-full">
         <h2 className="text-4xl font-semibold">Beauty Deal</h2>
         <p className="text-xl px-5 text-gray-600">

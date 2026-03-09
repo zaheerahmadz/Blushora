@@ -1,5 +1,6 @@
 import React from "react";
 import CtnBtn from "./CtnBtn";
+import { Link } from "react-router-dom";
 
 const RevealingBeauty = () => {
   return (
@@ -23,7 +24,6 @@ const RevealingBeauty = () => {
           </div>
         </div>
 
-        {/* Centered overlay card – improved positioning & visibility */}
         <div className="absolute inset-0 z-10 flex items-center justify-center px-4 py-8 sm:px-8 sm:py-12 lg:py-16 pointer-events-none">
           <div
             className="
@@ -57,21 +57,22 @@ const RevealingBeauty = () => {
             >
               Where High-Fashion Beauty Meets Transformation
             </p>
-
-            <CtnBtn
-              className="
-                bg-red-500 hover:bg-red-600 active:bg-red-700 
-                text-white font-medium 
-                px-8 sm:px-10 md:px-12 
-                py-3 sm:py-3.5 
-                text-base sm:text-lg 
-                rounded-full 
-                shadow-lg 
-                transition-all duration-300
+            <Link to={"/blog"}>
+              <CtnBtn
+                className="
+              bg-red-500 hover:bg-red-600 active:bg-red-700 
+              text-white font-medium 
+              px-8 sm:px-10 md:px-12 
+              py-3 sm:py-3.5 
+              text-base sm:text-lg 
+              rounded-full 
+              shadow-lg 
+              transition-all duration-300
               "
-            >
-              Treading
-            </CtnBtn>
+              >
+                Treading
+              </CtnBtn>
+            </Link>
           </div>
         </div>
       </div>

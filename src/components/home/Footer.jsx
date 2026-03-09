@@ -9,13 +9,8 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 text-gray-700 py-2 my-10 relative">
-      {/* Top Info Cards */}
-      {/* Top Info Cards */}
-
-      {/* Footer Main */}
+    <footer className="bg-gray-50 text-gray-700 py-2 mt-10 relative">
       <div className="max-w-6xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 pb-6">
-        {/* Store Info */}
         <div className="space-y-2">
           <h4 className="text-2xl font-bold text-red-500">STORE</h4>
           <p className="flex items-center gap-2 text-gray-500 text-sm">
@@ -26,7 +21,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Reach Us */}
         <div className="space-y-2">
           <h4 className="text-2xl font-bold text-red-500">REACH US</h4>
           <p className="flex items-center gap-2 text-gray-500 text-sm">
@@ -37,7 +31,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Info */}
         <div className="space-y-2">
           <h4 className="text-2xl font-bold text-red-500">INFO</h4>
           <ul className="text-gray-500 text-sm space-y-1">
@@ -55,7 +48,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Socials */}
         <div className="space-y-2">
           <h4 className="text-2xl font-bold text-red-500">SHARE WITH US</h4>
           <div className="flex gap-3 text-gray-500">
@@ -72,9 +64,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="text-center text-gray-400 text-sm pb-6">
-        © Copyright 2025 Blushora Cosmetics. All rights reserved.
+      <div className="text-center text-gray-400 text-sm ">
+        © Copyright 2025 Nayab Cosmetics. All rights reserved.
       </div>
     </footer>
   );

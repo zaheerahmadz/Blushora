@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Calendar, User } from "lucide-react";
 import blogData from "../../constant/Blog";
 import MailingListCTA from "../../components/common/MailingListCTA";
@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      {/* Hero Section */}
       <section className="w-full bg-[url('/hero.png')] bg-cover bg-center bg-no-repeat">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-24 text-center">
           <h1 className="text-sm sm:text-base uppercase tracking-widest text-red-500">
@@ -27,7 +29,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Blog Cards Section */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogData.map((blog) => (
@@ -49,7 +50,6 @@ const Blog = () => {
                 </span>
               </div>
 
-              {/* Content */}
               <div className="p-6 space-y-4">
                 <div className="flex items-center gap-6 text-xs text-gray-500">
                   <div className="flex items-center gap-2">
