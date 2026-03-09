@@ -33,7 +33,11 @@ const FeaturedProduct = ({ selectedCategory }) => {
 
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition" />
 
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div
+                className="absolute inset-0 flex items-center justify-center 
+                opacity-100 lg:opacity-0 
+                lg:group-hover:opacity-100 transition"
+              >
                 <CtnBtn
                   className="px-4 py-2 text-xs md:text-sm"
                   onClick={(e) => e.stopPropagation()}

@@ -20,6 +20,8 @@ import MagDetails from "./pages/Magazine/MagDetails";
 import BlogDetails from "./pages/Blog/BlogDetails";
 import Wishlist from "./pages/Seller/Wishlist";
 import Cart from "./pages/Seller/Cart";
+import Signup from "./pages/User/SignUp";
+import Login from "./pages/User/Login";
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/collection" element={<Collection />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/shop" element={<Shop />} />

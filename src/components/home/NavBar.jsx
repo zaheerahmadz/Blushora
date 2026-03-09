@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [SearchIon, setSearchIon] = useState(false);
+  const [UserIon, setUserIon] = useState(false);
   const [MobileShow, setMobileShow] = useState(false);
   const closeMenu = () => setMobileShow(false);
 
@@ -47,7 +48,27 @@ const NavBar = () => {
             <Link to={"/wishlist"}>
               <Heart size={22} className="hover:text-red-500 cursor-pointer" />
             </Link>
-            <User size={22} className="hover:text-red-500 cursor-pointer" />
+            <User
+              onClick={() => setUserIon(!UserIon)}
+              size={22}
+              className="hover:text-red-500 cursor-pointer"
+            />
+            {UserIon && (
+              <div className="absolute right-0 mt-30 w-40 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
+                <Link to={"/signup"}>
+                  <button className="w-full hover:text-white hover:bg-gradient-to-r from-red-500 to-pink-500 cursor-pointer text-left px-4 py-2 text-sm hover:bg-gray-100 transition">
+                    Signup
+                  </button>
+                </Link>
+
+                <hr className="border-gray-200" />
+                <Link to={"/login"}>
+                  <button className="w-full hover:text-white hover:bg-gradient-to-r from-red-500 to-pink-500 cursor-pointer text-left px-4 py-2 text-sm hover:bg-gray-100 transition">
+                    Login
+                  </button>
+                </Link>
+              </div>
+            )}
             <div className="relative">
               <Link to={"/cart"}>
                 <ShoppingBag
