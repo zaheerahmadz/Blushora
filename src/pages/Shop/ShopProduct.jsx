@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ShopProducts from "../../constant/ShopProducts";
 import CtnBtn from "../../components/common/CtnBtn";
 import { Link } from "react-router-dom";
+import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
 const categories = ["All", "Make-up", "Skincare", "Fashion & Food", "Lips Duo"];
 
@@ -10,6 +11,7 @@ const ShopProduct = () => {
   const [filteredProducts, setFilteredProducts] = useState(ShopProducts);
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeId, setActiveId] = useState(null);
+  const [wishlist, setWishlist] = useState([]);
 
   const filterCategory = (category) => {
     setActiveCategory(category);
@@ -43,6 +45,14 @@ const ShopProduct = () => {
     setFilteredProducts(ShopProducts);
   };
 
+  const toggleWishlist = (e, id) => {
+    e.stopPropagation();
+
+    setWishlist((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
+  };
+
   return (
     <section className="w-full">
       <div className="mx-auto">
@@ -64,8 +74,9 @@ const ShopProduct = () => {
         </ul>
       </div>
 
+      {/* Filters */}
       <div className="w-full text-gray-600 px-4">
-        <div className="flex max-w-6xl mx-auto flex-col sm:flex-row sm:flex-wrap sm:justify-end items-center gap-3 p-4 rounded-xl ">
+        <div className="flex max-w-6xl mx-auto flex-col sm:flex-row sm:flex-wrap sm:justify-end items-center gap-3 p-4 rounded-xl">
           <button
             onClick={Reset}
             className="flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto px-4 sm:px-5 py-2 text-sm sm:text-base bg-white border border-gray-300 rounded-lg hover:shadow transition"
@@ -85,6 +96,8 @@ const ShopProduct = () => {
           </select>
         </div>
       </div>
+
+      {/* Products */}
       <div className="max-w-6xl my-10 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((item) => (
           <div
@@ -98,15 +111,30 @@ const ShopProduct = () => {
             }`}
           >
             <div className="relative group aspect-square overflow-hidden rounded-t-2xl">
+              {/* Image */}
               <img
                 src={item.img}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition" />
+              {/* Wishlist */}
+              <button
+                onClick={(e) => toggleWishlist(e, item.id)}
+                className="absolute top-2 right-2 z-10 bg-white/80 backdrop-blur-md p-2 rounded-full shadow hover:bg-red-500 hover:text-white transition"
+              >
+                {wishlist.includes(item.id) ? (
+                  <IoHeart size={18} className="text-red-500" />
+                ) : (
+                  <IoHeartOutline size={18} />
+                )}
+              </button>
 
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 opacity-40 lg:opacity-0 lg:group-hover:opacity-100 transition pointer-events-none" />
+
+              {/* Add to cart */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition">
                 <CtnBtn
                   className="px-4 py-2 text-xs md:text-sm"
                   onClick={(e) => e.stopPropagation()}
@@ -116,10 +144,12 @@ const ShopProduct = () => {
               </div>
             </div>
 
+            {/* Sale badge */}
             <h3 className="bg-red-500 absolute top-2 left-2 px-2 py-1 rounded-lg text-white text-xs uppercase">
               Sale
             </h3>
 
+            {/* Price */}
             <div className="flex gap-2 justify-center p-3 text-sm md:text-base">
               <h2 className="font-bold text-red-500">
                 Rs.{item.DiscountPrice}
@@ -127,6 +157,7 @@ const ShopProduct = () => {
               <h2 className="line-through text-gray-500">Rs.{item.price}</h2>
             </div>
 
+            {/* Title */}
             <h2
               className={`text-center px-2 pb-4 text-sm md:text-base
               ${
@@ -141,6 +172,7 @@ const ShopProduct = () => {
         ))}
       </div>
 
+      {/* Load More */}
       <div className="flex justify-center">
         <Link to={"/collection"}>
           <CtnBtn className="!px-10 !py-2 my-5 shadow-2xl">Load More</CtnBtn>

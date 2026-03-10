@@ -2,6 +2,7 @@ import React from "react";
 import CtnBtn from "./CtnBtn";
 import GlowProducts from "../../constant/GlowProducts";
 import { Link } from "react-router-dom";
+import { IoHeartOutline } from "react-icons/io5";
 
 const GlowSection = () => {
   return (
@@ -50,13 +51,19 @@ const GlowSection = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300" />
-
+                  <div className="absolute inset-0 bg-black/40  pointer-events-none opacity-40 lg:opacity-0 lg:group-hover:opacity-100 transition" />
                   <div
-                    className="absolute inset-0 flex items-center justify-center 
-                opacity-100 lg:opacity-0 
-                lg:group-hover:opacity-100 transition"
+                    className="absolute inset-0 flex items-center justify-center
+  opacity-100 lg:opacity-0 lg:group-hover:opacity-100
+  transition-opacity duration-300"
                   >
+                    <button
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute top-2 right-2 z-10 bg-white/80 backdrop-blur-md 
+  p-2 rounded-full shadow hover:bg-red-500 hover:text-white transition"
+                    >
+                      <IoHeartOutline size={18} />
+                    </button>
                     <CtnBtn
                       className="px-4 py-2 text-xs md:text-sm"
                       onClick={(e) => e.stopPropagation()}
