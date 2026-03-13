@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Search, Heart, User, ShoppingBag, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { CartContext } from "../../context/CartContext";
+import Wishlist from "../../pages/Seller/Wishlist";
+import Cart from "../../pages/Seller/Cart";
 
 const NavBar = () => {
   const [SearchIon, setSearchIon] = useState(false);
   const [UserIon, setUserIon] = useState(false);
   const [MobileShow, setMobileShow] = useState(false);
   const closeMenu = () => setMobileShow(false);
+  const { cart, wishlist } = useContext(CartContext);
 
   return (
     <section className="w-full p-5 bg-white sticky top-0 z-50">
@@ -45,8 +51,13 @@ const NavBar = () => {
               size={22}
               className="hover:text-red-500  cursor-pointer"
             />
-            <Link to={"/wishlist"}>
+            <Link to="/wishlist" className="relative">
               <Heart size={22} className="hover:text-red-500 cursor-pointer" />
+              {wishlist.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {wishlist.length}
+                </span>
+              )}
             </Link>
             <User
               onClick={() => setUserIon(!UserIon)}
@@ -70,14 +81,16 @@ const NavBar = () => {
               </div>
             )}
             <div className="relative">
-              <Link to={"/cart"}>
+              <Link to="/cart" className="relative">
                 <ShoppingBag
                   size={22}
                   className="hover:text-red-500 cursor-pointer"
                 />
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  4
-                </span>
+                {cart.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                    {cart.reduce((acc, item) => acc + item.qty, 0)}
+                  </span>
+                )}
               </Link>
             </div>
           </div>
@@ -166,17 +179,23 @@ const NavBar = () => {
           <div className="flex p-5 w-full justify-between ">
             <div className="flex gap-5">
               {" "}
-              <Heart size={22} className="hover:text-red-500 cursor-pointer" />
-              <User size={22} className="hover:text-red-500 cursor-pointer" />
+              <Link to={"/wishlist"}>
+                <Heart
+                  size={22}
+                  className="hover:text-red-500 cursor-pointer"
+                />
+              </Link>
+              <Link to={"/login"}>
+                <User size={22} className="hover:text-red-500 cursor-pointer" />
+              </Link>
             </div>
             <div className="relative me-1">
-              <ShoppingBag
-                size={22}
-                className="hover:text-red-500 cursor-pointer"
-              />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                4
-              </span>
+              <Link to={"/cart"}>
+                <ShoppingBag
+                  size={22}
+                  className="hover:text-red-500 cursor-pointer"
+                />
+              </Link>
             </div>
           </div>
         </div>

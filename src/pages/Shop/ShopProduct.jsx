@@ -1,68 +1,88 @@
 import { SlidersHorizontal } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ShopProducts from "../../constant/ShopProducts";
 import CtnBtn from "../../components/common/CtnBtn";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
 const categories = ["All", "Make-up", "Skincare", "Fashion & Food", "Lips Duo"];
 
 const ShopProduct = () => {
+  const { addToCart, toggleWishlist, wishlist } = useContext(CartContext);
   const [filteredProducts, setFilteredProducts] = useState(ShopProducts);
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeId, setActiveId] = useState(null);
-  const [wishlist, setWishlist] = useState([]);
+  const [toast, setToast] = useState({ message: "", show: false });
 
-  const filterCategory = (category) => {
-    setActiveCategory(category);
-
-    if (category === "All") {
-      setFilteredProducts(ShopProducts);
-    } else {
-      const result = ShopProducts.filter((item) => item.category === category);
-      setFilteredProducts(result);
-    }
+  // Show toast message
+  const showToast = (message) => {
+    setToast({ message, show: true });
+    setTimeout(() => setToast({ message, show: false }), 2000);
   };
 
+  // Category filter
+  const filterCategory = (category) => {
+    setActiveCategory(category);
+    setFilteredProducts(
+      category === "All"
+        ? ShopProducts
+        : ShopProducts.filter((p) => p.category === category),
+    );
+  };
+
+  // Price filter
   const handlePriceFilter = (value) => {
     let result = ShopProducts;
-
-    if (value === "1000") {
-      result = ShopProducts.filter((item) => item.price < 1000);
-    } else if (value === "2000") {
-      result = ShopProducts.filter(
-        (item) => item.price >= 1000 && item.price <= 2000,
-      );
-    } else if (value === "2000+") {
-      result = ShopProducts.filter((item) => item.price > 2000);
-    }
-
+    if (value === "1000") result = ShopProducts.filter((p) => p.price < 1000);
+    else if (value === "2000")
+      result = ShopProducts.filter((p) => p.price >= 1000 && p.price <= 2000);
+    else if (value === "2000+")
+      result = ShopProducts.filter((p) => p.price > 2000);
     setFilteredProducts(result);
   };
 
+  // Reset filters
   const Reset = () => {
     setActiveCategory("All");
     setFilteredProducts(ShopProducts);
   };
 
-  const toggleWishlist = (e, id) => {
+  // Handle Add to Cart
+  const handleAddToCart = (e, item) => {
     e.stopPropagation();
+    addToCart(item);
+    showToast("Product added to cart!");
+  };
 
-    setWishlist((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+  // Handle Wishlist toggle
+  const handleWishlist = (e, item) => {
+    e.stopPropagation();
+    toggleWishlist(item);
+    showToast(
+      wishlist.find((p) => p.id === item.id)
+        ? "Removed from wishlist!"
+        : "Added to wishlist!",
     );
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full relative">
+      {/* Toast message */}
+      {toast.show && (
+        <div className="fixed top-5 right-5 bg-red-500 text-white px-5 py-3 rounded-lg shadow-lg z-50">
+          {toast.message}
+        </div>
+      )}
+
+      {/* Categories */}
       <div className="mx-auto">
         <ul className="flex justify-center gap-10 lg:text-xl flex-wrap border-b border-gray-300 py-5">
           {categories.map((item) => (
             <li
               key={item}
               onClick={() => filterCategory(item)}
-              className={`cursor-pointer pb-2 transition-all duration-300
-              ${
+              className={`cursor-pointer pb-2 transition-all duration-300 ${
                 activeCategory === item
                   ? "text-red-500 border-b-2 border-red-500 font-semibold"
                   : "hover:text-red-500"
@@ -103,8 +123,7 @@ const ShopProduct = () => {
           <div
             key={item.id}
             onClick={() => setActiveId(item.id)}
-            className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300
-            ${
+            className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
               activeId === item.id
                 ? "bg-white scale-105 shadow-2xl ring-2 ring-red-500"
                 : "bg-gray-100 hover:shadow-xl"
@@ -120,24 +139,21 @@ const ShopProduct = () => {
 
               {/* Wishlist */}
               <button
-                onClick={(e) => toggleWishlist(e, item.id)}
+                onClick={(e) => handleWishlist(e, item)}
                 className="absolute top-2 right-2 z-10 bg-white/80 backdrop-blur-md p-2 rounded-full shadow hover:bg-red-500 hover:text-white transition"
               >
-                {wishlist.includes(item.id) ? (
+                {wishlist.find((p) => p.id === item.id) ? (
                   <IoHeart size={18} className="text-red-500" />
                 ) : (
                   <IoHeartOutline size={18} />
                 )}
               </button>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-40 lg:opacity-0 lg:group-hover:opacity-100 transition pointer-events-none" />
-
-              {/* Add to cart */}
+              {/* Add to Cart */}
               <div className="absolute inset-0 flex items-center justify-center opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition">
                 <CtnBtn
                   className="px-4 py-2 text-xs md:text-sm"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => handleAddToCart(e, item)}
                 >
                   Add To Cart
                 </CtnBtn>
@@ -159,8 +175,7 @@ const ShopProduct = () => {
 
             {/* Title */}
             <h2
-              className={`text-center px-2 pb-4 text-sm md:text-base
-              ${
+              className={`text-center px-2 pb-4 text-sm md:text-base ${
                 activeId === item.id
                   ? "text-red-500 font-semibold"
                   : "text-gray-900"

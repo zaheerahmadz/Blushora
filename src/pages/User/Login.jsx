@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,9 +83,9 @@ const Login = () => {
         </button>
 
         <p className="text-center text-sm text-gray-500 mt-5">
-          Already have an account?{" "}
+          Don't have an account?{" "}
           <span className="text-red-500 cursor-pointer font-medium">
-            Sign In
+            <Link to={"/signup"}>Sign In</Link>
           </span>
         </p>
       </div>

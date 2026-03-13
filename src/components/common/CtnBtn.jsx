@@ -7,6 +7,7 @@ const CtnBtn = ({
   bg = "bg-red-500",
   hoverText = "group-hover:text-red-500",
   to = null,
+  onClick = null, // allow external onClick
 }) => {
   const navigate = useNavigate();
 
@@ -15,7 +16,11 @@ const CtnBtn = ({
 
   const defaultSize = "px-6 py-3 text-lg";
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    // call external onClick first
+    if (onClick) onClick(e);
+
+    // navigate if `to` is provided
     if (to) navigate(to);
   };
 
