@@ -181,17 +181,23 @@ const NavBar = () => {
               {" "}
               <Link to={"/wishlist"}>
                 <Heart
+                  onClick={closeMenu}
                   size={22}
                   className="hover:text-red-500 cursor-pointer"
                 />
               </Link>
               <Link to={"/login"}>
-                <User size={22} className="hover:text-red-500 cursor-pointer" />
+                <User
+                  onClick={closeMenu}
+                  size={22}
+                  className="hover:text-red-500 cursor-pointer"
+                />
               </Link>
             </div>
             <div className="relative me-1">
               <Link to={"/cart"}>
                 <ShoppingBag
+                  onClick={closeMenu}
                   size={22}
                   className="hover:text-red-500 cursor-pointer"
                 />

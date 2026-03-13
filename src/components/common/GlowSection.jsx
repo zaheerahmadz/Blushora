@@ -140,9 +140,9 @@ const GlowSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-center px-2 pb-4 text-xs sm:text-sm md:text-base hover:text-red-500 text-gray-900">
+                <h2 className="text-center px-3 pb-4 text-xs sm:text-sm md:text-base hover:text-red-500 text-gray-900">
                   {item.info}
-                </h3>
+                </h2>
               </div>
             ))}
           </div>

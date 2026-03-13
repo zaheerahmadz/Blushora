@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, increaseQty, decreaseQty, removeFromCart } =
     useContext(CartContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
   const shipping = subtotal > 0 ? 200 : 0;
