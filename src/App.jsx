@@ -20,7 +20,7 @@ import MagDetails from "./pages/Magazine/MagDetails";
 import BlogDetails from "./pages/Blog/BlogDetails";
 import Wishlist from "./pages/Seller/Wishlist";
 import Cart from "./pages/Seller/Cart";
-import Signup from "./pages/User/SignUp";
+import Signup from "./pages/User/Signup";
 import Login from "./pages/User/Login";
 
 const App = () => {
